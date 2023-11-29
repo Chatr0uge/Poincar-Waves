@@ -1,0 +1,185 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+\usepackage{geometry}
+\geometry{hmargin=2cm,vmargin=2cm}
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{colortbl}
+\usepackage{fancybox}
+\tcbuselibrary{most}
+\usepackage{pifont}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{eso-pic}
+\usepackage{nicematrix}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{derivative}
+\usepackage{wrapfig}
+\usepackage{stmaryrd}
+\usepackage{biblatex} %Imports biblatex package %Import the bibliography file
+\addbibresource{references.bib}
+\author{Andrea}
+\setlength{\columnseprule}{0.001 cm}
+\setlength{\columnsep}{1cm}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+\usepackage{amsmath}
+\colorlet{shadecolor}{cyan!15}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage[export]{adjustbox}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{black}{\today}}
+\lhead{\colorbox{lightgray}{%
+\makebox[\dimexpr\linewidth][l]{\color{black}%
+\includegraphics[height=1.5\baselineskip,valign=c]{ENS.png}
+\hspace*{0.3cm} ENS / 
+}%
+}} 
+\rfoot{}
+\fancyfoot[C]{\thepage} 
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\begin{document}
+\begin{titlepage}
+    \AddToShipoutPictureBG*{
+        \begin{tikzpicture}[overlay,remember picture]
+            \draw [line width=3pt]
+            ($ (current page.north west) + (2cm,-2.0cm) $)
+            rectangle
+            ($ (current page.south east) + (-2cm,1.8cm) $);
+            \draw [line width=1pt]
+            ($ (current page.north west) + (2.15cm,-2.15cm) $)
+            rectangle
+            ($ (current page.south east) + (-2.15cm,1.95cm) $);
+        \end{tikzpicture}
+    }
+    \begin{center}
+        \begin{figure*}
+            \begin{center}
+                \vspace*{2cm}
+            \end{center}
+        \end{figure*}
+        \rule{14cm}{2pt}\vspace{.7cm}
+
+        \textbf{Numerical Method Project Report}
+
+        \vspace{.5cm}
+        \rule{14cm}{2pt}\vspace{1cm}
+        \vspace{1.5cm}
+
+        \large Andrea Combette
+        \vspace{1cm}
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\begin{multicols*}{2}
+
+    \chapter{Introduction}
+    This project aims at exploring the shallow water equations and their numerical solutions. The shallow water equations are a set of hyperbolic partial differential equations (PDEs) that describe the flow below a pressure surface in a fluid (sometimes, but not necessarily, a free surface is assumed to exist) .
+    Shallow water equations are derived from depth-integrating the Navier–Stokes equations, in the case where the horizontal length scale is much greater than the vertical length scale. Under this condition, conservation of mass implies that the vertical velocity is small, and thus negligible compared to the horizontal velocities.
+    The general form of this equation is the following:
+    \section{General equations}
+
+    \subsection{Conservation of mass}
+    \subsection{Navier-Stokes equations}
+
+    \section{Driving Forces}
+    \subsection{Gravity}
+    \subsection{Coriolis force}
+    \subsection{Wind stress}
+    \dots
+    \section{Simplified Rossby equations}
+    \subsection{Simplification}
+
+    \begin{equation}
+        \begin{cases}
+            -fv + g \frac{\partial h}{\partial x} = 0                                                                                                          \\
+            fu + g \frac{\partial h}{\partial y} = 0                                                                                                           \\
+            \beta \frac{v}{a} + g \frac{\partial}{\partial t}(\frac{1}{a}(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}) - \frac{fh}{a^2}) = 0 \\
+        \end{cases}
+    \end{equation}
+
+
+    Then we got :
+
+    \begin{equation}
+        \begin{cases}
+            v  = \frac{g}{f} \frac{\partial h}{\partial x}                                                                                                                    \\
+            u  = -\frac{g}{f}\frac{\partial h}{\partial y}                                                                                                                    \\
+            \beta \frac{\partial h}{\partial x} +  \frac{\partial}{\partial t}(g(\frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial y^2}) - \frac{f^2}{a}h) = 0 \\
+        \end{cases}
+    \end{equation}
+
+
+    \subsection{Spatial-Space discretization scheme}
+
+
+    Using Leap-Frog time inegration scheme and semi Spectral method we got the following equation on $h_i$ knowing h sufficiently smooth:
+    \begin{center}
+        \rule{5cm}{1pt}
+    \end{center}
+    \begin{equation}
+        \Delta h_{i+1} - \frac{f^2}{ga} h_{i+1} =  \Delta h_{i-1} -\frac{f^2}{ga}h_{i-1} - 2\frac{\beta}{g} \frac{\partial h_i}{\partial x}\Delta t
+    \end{equation}
+
+
+    At each integration step we got the value of the $$\Delta h_{i+1} - \frac{f^2}{ga} h_{i+1} = C.$$ We then propose to solve the ellpitic differential equation at each step to get the value of  $ h_{i+1}$. Next we solve the following equation :
+
+    \begin{equation}
+        (A -\Gamma)U = B
+    \end{equation}
+
+    with
+
+
+    \begin{equation}
+        \Gamma = \begin{pmatrix}\Gamma_1&0\\0&\Gamma_2&\ddots\\&\ddots&\ddots&\ddots\\&&\ddots&\Gamma_{N-2}&0\\&&&0& \Gamma_{N-1}\end{pmatrix}
+    \end{equation}
+
+
+    with $\Gamma_j = \frac{f(x_i. y_j)a}{g}$ of size N-2
+
+    And A define as the laplacian matrix
+    $$
+        A=-\frac{1}{h^2}\begin{pmatrix}C&I_{N-1}\\I_{N-1}&C&\ddots\\&\ddots&\ddots&\ddots\\&&\ddots&C&I_{N-1}\\&&&I_{N-1}&C\end{pmatrix}
+    $$
+    with $I_{N-1}$ the identity matrix of order $N-1$ and $C$ the tridiagonal matrix of order $N-1$ defined by
+    $$
+        C=\begin{pmatrix}-4&1&0&\dots&\dots&0\\1&-4&-1&\ddots&&\vdots\\0&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots&\ddots&\ddots&\ddots&\ddots&0\\\vdots&&\ddots&1&-4&1\\0&\dots&\dots&0&1&-4\end{pmatrix},
+    $$
+    the other blocks being zero.
+
+
+
+    \chapter{Discussions}
+
+
+\end{multicols*}
+\end{document}
