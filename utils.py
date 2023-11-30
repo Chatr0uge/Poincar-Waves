@@ -2,11 +2,11 @@ from typing import Callable, Iterable
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.fft import dctn
+from scipy.fft import dctn, fft, fft2, fftfreq
 from scipy.interpolate import interpn
 import scipy.sparse as sparse
 from scipy.linalg import lu_factor, lu_solve
-
+from numba import jit
 
 def spA(n):
     
@@ -204,3 +204,46 @@ def get_speed_from_height(h : Iterable, mesh_finite : Iterable, mesh_spectral : 
     
     return - f / g * gradient_h[1], f / g * gradient_h[0]
 
+@jit(nopython=True)
+def compute_wave_vector_matrix(mesh : Iterable) : 
+    """
+    compute_wave_vector_matrix compute 2d wave vector matrix
+
+    Parameters
+    ----------
+    mesh : Iterable
+        2D wave height
+
+    Returns
+    -------
+    _type_
+        _description_
+    """
+    wave_vector_matrix : Iterable = fft2(mesh)
+    
+    return np.mean(wave_vector_matrix, axis = 0), np.mean(wave_vector_matrix, axis = 1)
+
+def compute_frequency_dependence_wave_vector(mesh_wave : Iterable) :  
+    """
+    compute_frequency_dependence_wave_vector compute frequency dependence of wave vector
+
+    Parameters
+    ----------
+    mesh_wave : Iterable
+        2D wave height
+
+    Returns
+    -------
+    _type_
+        _description_
+    """    
+    wave_vector_matrix_over_time_x = np.array(map(lambda x : compute_wave_vector_matrix(x), mesh_wave))
+    
+    k_x = wave_vector_matrix_over_time_x[:,0]
+    k_y = wave_vector_matrix_over_time_x[:,1]
+    t = np.arange(len(mesh_wave)) * 10 ** (-3)
+    freq = fftfreq(len(t), d = 10 ** (-3))
+    w_x = fft(k_x)
+    w_y = fft(k_y)
+    
+    return freq, (w_x, w_y), (k_x, k_y)
