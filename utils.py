@@ -31,12 +31,12 @@ def finite_difference_2D(A, B, Gamma, a, b) :
     
     
     N = len(B)
-    h = (b - a) / N
+    h = (b - a) / N  
     lu = sparse.linalg.splu(A - Gamma)
-    U = lu.solve(B[1:-1, 1:-1].flatten())
+    U = lu.solve(B.flatten())
     
     sols = np.zeros((len(B), len(B)))
-    sols[1:-1:,1:-1]  = U.reshape(N-2, N-2)
+    sols  = U.reshape(N, N)
     
     return sols
 
@@ -168,8 +168,6 @@ def leap_frog(Delta_t : float, mesh_spectral : Iterable, mesh_finite : Iterable,
     C = - factor_2 *  gradient_h[0]
     h_3 = finite_difference_2D(A, C, Gamma, -1, 1) + h_2  
 
-    h_3[:,[0,-1]] = h_2[:,[0,-1]]
-    h_3[[0,-1],:] = h_2[[0,-1],:]
     
     return h_3
 
@@ -204,7 +202,6 @@ def get_speed_from_height(h : Iterable, mesh_finite : Iterable, mesh_spectral : 
     
     return - f / g * gradient_h[1], f / g * gradient_h[0]
 
-@jit(nopython=True)
 def compute_wave_vector_matrix(mesh : Iterable) : 
     """
     compute_wave_vector_matrix compute 2d wave vector matrix
@@ -237,8 +234,7 @@ def compute_frequency_dependence_wave_vector(mesh_wave : Iterable) :
     _type_
         _description_
     """    
-    wave_vector_matrix_over_time_x = np.array(map(lambda x : compute_wave_vector_matrix(x), mesh_wave))
-    
+    wave_vector_matrix_over_time_x = np.array([compute_wave_vector_matrix(x) for x in mesh_wave])
     k_x = wave_vector_matrix_over_time_x[:,0]
     k_y = wave_vector_matrix_over_time_x[:,1]
     t = np.arange(len(mesh_wave)) * 10 ** (-3)
