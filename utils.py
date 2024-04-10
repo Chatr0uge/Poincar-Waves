@@ -2,11 +2,11 @@ from typing import Callable, Iterable
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.fft import dctn, fft, fft2, fftfreq
+from scipy.fft import dctn
 from scipy.interpolate import interpn
 import scipy.sparse as sparse
 from scipy.linalg import lu_factor, lu_solve
-from numba import jit
+
 
 def spA(n):
     
@@ -31,12 +31,12 @@ def finite_difference_2D(A, B, Gamma, a, b) :
     
     
     N = len(B)
-    h = (b - a) / N  
+    h = (b - a) / N
     lu = sparse.linalg.splu(A - Gamma)
-    U = lu.solve(B.flatten())
+    U = lu.solve(B[1:-1, 1:-1].flatten())
     
     sols = np.zeros((len(B), len(B)))
-    sols  = U.reshape(N, N)
+    sols[1:-1:,1:-1]  = U.reshape(N-2, N-2)
     
     return sols
 
@@ -168,78 +168,33 @@ def leap_frog(Delta_t : float, mesh_spectral : Iterable, mesh_finite : Iterable,
     C = - factor_2 *  gradient_h[0]
     h_3 = finite_difference_2D(A, C, Gamma, -1, 1) + h_2  
 
+    h_3[:,[0,-1]] = h_2[:,[0,-1]]
+    h_3[[0,-1],:] = h_2[[0,-1],:]
     
     return h_3
 
-
-def get_speed_from_height(h : Iterable, mesh_finite : Iterable, mesh_spectral : Iterable, g, f) : 
-    
+def get_speed_from_height(h : Iterable, mesh : Iterable, g, f) : 
     """
-    get_speed_from_height compute the speed from the height
+    get_speed_from_height compute the speed of the wave given the height of the wave
 
     Parameters
     ----------
     h : Iterable
-        height
+        _description_
     mesh : Iterable
-        mesh
-    g : float
-        gravity
-    f : float
-        coriolis force
-
-    Returns
-    -------
-    np.ndarray
-        speed
-    """    
-    
-    h_spectral = grids_transfer(mesh_finite, mesh_spectral, h)
-    spectral_coeffs = compute_dct_coeff(h_spectral) 
-
-
-    gradient_h = compute_gradient_values_with_DCT(mesh_finite, spectral_coeffs)
-    
-    return - f / g * gradient_h[1], f / g * gradient_h[0]
-
-def compute_wave_vector_matrix(mesh : Iterable) : 
-    """
-    compute_wave_vector_matrix compute 2d wave vector matrix
-
-    Parameters
-    ----------
-    mesh : Iterable
-        2D wave height
+        _description_
+    g : _type_
+        _description_
+    f : _type_
+        _description_
 
     Returns
     -------
     _type_
         _description_
-    """
-    wave_vector_matrix : Iterable = fft2(mesh)
+    """        
+        
+    spectral_coeffs = compute_dct_coeff(h)
+    gradient_h = compute_gradient_values_with_DCT(mesh, spectral_coeffs) 
     
-    return np.mean(wave_vector_matrix, axis = 0), np.mean(wave_vector_matrix, axis = 1)
-
-def compute_frequency_dependence_wave_vector(mesh_wave : Iterable) :  
-    """
-    compute_frequency_dependence_wave_vector compute frequency dependence of wave vector
-
-    Parameters
-    ----------
-    mesh_wave : Iterable
-        2D wave height
-
-    Returns
-    -------
-    _type_
-        _description_
-    """    
-    wave_vector_matrix_over_time_x = np.array([compute_wave_vector_matrix(x) for x in mesh_wave])
-    k_x = wave_vector_matrix_over_time_x[:,0]
-    k_y = wave_vector_matrix_over_time_x[:,1]
-    t = np.arange(len(mesh_wave)) * 10 ** (-3)
-    freq = fftfreq(len(t), d = 10 ** (-3))
-    w_x = fft(k_x)
-    w_y = fft(k_y)
-    
-    return freq, (w_x, w_y), (k_x, k_y)
+    return -f / g * gradient_h[0], f / g * gradient_h[0]

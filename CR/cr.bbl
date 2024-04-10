@@ -16,5 +16,133 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Boyd80}{article}{}
+      \name{author}{1}{}{%
+        {{hash=22cb3417418f20a0ee88d534bf3dabdb}{%
+           family={Boyd},
+           familyi={B\bibinitperiod},
+           given={John.\bibnamedelimi Philip},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{fullhash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{bibnamehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{authorbibnamehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{authornamehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{authorfullhash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of physical Oceanography}
+      \field{number}{I}
+      \field{title}{{Equatorial Solitary Waves}}
+      \field{volume}{10}
+      \field{year}{1980}
+    \endentry
+    \entry{Boyd2002}{article}{}
+      \name{author}{1}{}{%
+        {{hash=22cb3417418f20a0ee88d534bf3dabdb}{%
+           family={Boyd},
+           familyi={B\bibinitperiod},
+           given={John.\bibnamedelimi Philip},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{fullhash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{bibnamehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{authorbibnamehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{authornamehash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \strng{authorfullhash}{22cb3417418f20a0ee88d534bf3dabdb}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of physical Oceanography}
+      \field{number}{V}
+      \field{title}{{Equatorial Solitary Waves}}
+      \field{volume}{10}
+      \field{year}{2002}
+    \endentry
+    \entry{Holton}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2681a6ad997013a413f2ca2bb15f9bfc}{%
+           family={Holton},
+           familyi={H\bibinitperiod},
+           given={James.\bibnamedelimi R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2681a6ad997013a413f2ca2bb15f9bfc}
+      \strng{fullhash}{2681a6ad997013a413f2ca2bb15f9bfc}
+      \strng{bibnamehash}{2681a6ad997013a413f2ca2bb15f9bfc}
+      \strng{authorbibnamehash}{2681a6ad997013a413f2ca2bb15f9bfc}
+      \strng{authornamehash}{2681a6ad997013a413f2ca2bb15f9bfc}
+      \strng{authorfullhash}{2681a6ad997013a413f2ca2bb15f9bfc}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Meteorological Monographs}
+      \field{number}{37}
+      \field{title}{{The dynamic meteorology of the stratosphere and mesosphere}}
+      \field{volume}{15}
+      \field{year}{1975}
+    \endentry
+    \entry{water}{book}{}
+      \name{author}{1}{}{%
+        {{hash=08347ff4622dad10ed3edf89217120ed}{%
+           family={VREUGDENHIL},
+           familyi={V\bibinitperiod},
+           given={C.\bibnamedelimi B.},
+           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{08347ff4622dad10ed3edf89217120ed}
+      \strng{fullhash}{08347ff4622dad10ed3edf89217120ed}
+      \strng{bibnamehash}{08347ff4622dad10ed3edf89217120ed}
+      \strng{authorbibnamehash}{08347ff4622dad10ed3edf89217120ed}
+      \strng{authornamehash}{08347ff4622dad10ed3edf89217120ed}
+      \strng{authorfullhash}{08347ff4622dad10ed3edf89217120ed}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Water Science and Technology Library, Springer Science}
+      \field{number}{37}
+      \field{title}{{Numerical Methods for Shallow-Water Flow}}
+      \field{volume}{13}
+      \field{year}{1975}
+      \verb{doi}
+      \verb 10.1007/978-94-015-8354-1
+      \endverb
+    \endentry
+    \entry{CF}{article}{}
+      \name{author}{1}{}{%
+        {{hash=eb4f5d017ffdbb7cfb6e0d93846b3251}{%
+           family={Wen-Yih\bibnamedelima Sun},
+           familyi={W\bibinithyphendelim Y\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Oliver\bibnamedelimb M.\bibnamedelimi Sun},
+           giveni={O\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb4f5d017ffdbb7cfb6e0d93846b3251}
+      \strng{fullhash}{eb4f5d017ffdbb7cfb6e0d93846b3251}
+      \strng{bibnamehash}{eb4f5d017ffdbb7cfb6e0d93846b3251}
+      \strng{authorbibnamehash}{eb4f5d017ffdbb7cfb6e0d93846b3251}
+      \strng{authornamehash}{eb4f5d017ffdbb7cfb6e0d93846b3251}
+      \strng{authorfullhash}{eb4f5d017ffdbb7cfb6e0d93846b3251}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Elsevier Ltd}
+      \field{title}{{Numerical simulation of Rossby wave in shallow water}}
+      \field{year}{2013}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

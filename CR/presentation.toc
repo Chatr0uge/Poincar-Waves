@@ -1,0 +1,26 @@
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Theoretical background}{3}{0}{2}
+\beamer@subsectionintoc {2}{1}{Shallow water equations}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Equatorial Study}{4}{0}{2}
+\beamer@sectionintoc {3}{Numerical implementation}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Integration scheme}{11}{0}{3}
+\beamer@subsubsectionintoc {3}{1}{1}{Spatial discretization}{12}{0}{3}
+\beamer@subsubsectionintoc {3}{1}{2}{Time discretization}{13}{0}{3}
+\beamer@subsubsectionintoc {3}{1}{3}{CFL Condition}{14}{0}{3}
+\beamer@subsectionintoc {3}{2}{Boundary conditions}{15}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{1}{Conservation of mass and energy}{16}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{2}{Potential vorticity}{17}{0}{3}
+\beamer@sectionintoc {4}{Numerical Results}{18}{0}{4}
+\beamer@subsectionintoc {4}{1}{Rossby soliton waves}{19}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{1}{Mass and energy conservation}{20}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{2}{Potential Enstrophy}{21}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{3}{Phase speed evaluation}{22}{0}{4}
+\beamer@subsectionintoc {4}{2}{Kelvin soliton waves}{23}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{1}{Mass and energy conservation}{25}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{2}{Potential Enstrophy}{26}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{3}{Phase speed evaluation \& dispersion}{27}{0}{4}
+\beamer@subsectionintoc {4}{3}{Unstable waves}{28}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{1}{Mass and energy conservation}{30}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{2}{Potential Enstrophy}{32}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{3}{Phase speed evaluation \& dispersion}{33}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{36}{0}{5}

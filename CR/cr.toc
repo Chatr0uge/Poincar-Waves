@@ -1,0 +1,32 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Theoretical Background}{3}{}%
+\contentsline {section}{\numberline {I}Shallow water equations}{3}{}%
+\contentsline {section}{\numberline {II}Equatorial study}{3}{}%
+\contentsline {subsection}{\numberline {1}Beta plane approximation}{3}{}%
+\contentsline {subsection}{\numberline {2}Gravity waves}{5}{}%
+\contentsline {subsection}{\numberline {3}Rossby waves}{5}{}%
+\contentsline {subsection}{\numberline {4}Kelvin waves}{6}{}%
+\contentsline {chapter}{\numberline {2}Numerical methods}{6}{}%
+\contentsline {section}{\numberline {I}Integration scheme}{6}{}%
+\contentsline {subsection}{\numberline {1}Spatial discretization}{7}{}%
+\contentsline {subsection}{\numberline {2}Time discretization}{7}{}%
+\contentsline {subsection}{\numberline {3}CFL condition}{7}{}%
+\contentsline {subsection}{\numberline {4}Boundary Condition}{8}{}%
+\contentsline {subsection}{\numberline {5}Conservation of mass and energy}{8}{}%
+\contentsline {subsubsection}{\numberline {a}Conservation of mass}{8}{}%
+\contentsline {subsubsection}{\numberline {b}Conservation of energy}{8}{}%
+\contentsline {subsection}{\numberline {6}Potential Vorticity}{8}{}%
+\contentsline {section}{\numberline {II}Numerical results}{8}{}%
+\contentsline {subsection}{\numberline {1}Rossby soliton waves}{8}{}%
+\contentsline {subsubsection}{\numberline {a}Conservation of mass \& energy}{9}{}%
+\contentsline {subsubsection}{\numberline {b}Potential Vorticity}{9}{}%
+\contentsline {subsubsection}{\numberline {c}Phase speed evaluation}{10}{}%
+\contentsline {subsection}{\numberline {2}Kelvin waves}{10}{}%
+\contentsline {subsubsection}{\numberline {a}Conservation of mass \& energy}{11}{}%
+\contentsline {subsubsection}{\numberline {b}Potential Vorticity}{11}{}%
+\contentsline {subsubsection}{\numberline {c}Phase speed and dispersion }{12}{}%
+\contentsline {subsection}{\numberline {3}Unstable waves}{12}{}%
+\contentsline {subsubsection}{\numberline {a}Conservation of mass \& energy}{13}{}%
+\contentsline {subsubsection}{\numberline {b}Potential Vorticity}{13}{}%
+\contentsline {subsubsection}{\numberline {c}Phase speed and dispersion evaluation}{13}{}%
+\contentsline {chapter}{\numberline {3}Summery \& Prospectus}{14}{}%
